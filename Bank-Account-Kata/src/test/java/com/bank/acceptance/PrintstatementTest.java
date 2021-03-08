@@ -12,6 +12,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.bank.domain.Account;
 import com.bank.repositories.TransactionRepository;
+import com.bank.service.Clock;
 import com.bank.service.Console;
 import com.bank.service.StatementPrinter;
 
@@ -22,10 +23,11 @@ public class PrintstatementTest {
 		private Account account;
 		private TransactionRepository transactionRepository;
 		private StatementPrinter statementPrinter;
+		private Clock clock;
 		
 		@Before
 		public void setUp() throws Exception {
-			transactionRepository = new TransactionRepository();
+			transactionRepository = new TransactionRepository(clock);
 			statementPrinter = new StatementPrinter();
 			account = new Account(transactionRepository, statementPrinter);
 		}
