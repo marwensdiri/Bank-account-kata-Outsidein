@@ -1,11 +1,9 @@
 package com.bank.acceptance;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
 
+import static org.mockito.Mockito.verify;
 import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -28,7 +26,7 @@ public class PrintstatementTest {
 		@Before
 		public void setUp() throws Exception {
 			transactionRepository = new TransactionRepository(clock);
-			statementPrinter = new StatementPrinter();
+			statementPrinter = new StatementPrinter(console);
 			account = new Account(transactionRepository, statementPrinter);
 		}
 
