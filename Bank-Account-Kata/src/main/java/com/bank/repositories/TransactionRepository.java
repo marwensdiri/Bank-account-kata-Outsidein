@@ -5,10 +5,12 @@ import org.apache.commons.lang3.NotImplementedException;
 import com.bank.domain.Transaction;
 import com.bank.service.Clock;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TransactionRepository {
 
+	private List<Transaction> transactions = new ArrayList<Transaction>();
 	private Clock clock;
 
 	public TransactionRepository(Clock clock) {
@@ -16,7 +18,7 @@ public class TransactionRepository {
 	}
 	
 	public void addDeposit(int amount) {
-		throw new NotImplementedException("TODO");
+		transactions.add(new Transaction(clock.todayAsString(), amount));
 
 	}
 	
@@ -26,6 +28,6 @@ public class TransactionRepository {
 	}
 	
 	public List<Transaction> allTransactions() {
-		throw new NotImplementedException("TODO");	
+		return  transactions;
 	}
 }

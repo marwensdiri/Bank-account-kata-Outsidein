@@ -4,7 +4,7 @@ import org.apache.commons.lang3.NotImplementedException;
 
 public class Clock {
 
-	public Object todayAsString() {
+	public String todayAsString() {
 		throw new NotImplementedException("TODO");	
 	}
 
