@@ -14,8 +14,15 @@
 	<name>Bank-Account-Kata</name>
 	<description>Bank-Account-Kata-OutsideIn</description>
 	<properties>
+	
 		<java.version>8</java.version>
+
+        <!-- Dependencies versions -->        		
 		<spring-cloud.version>2020.0.1</spring-cloud.version>
+	    <assertj.core.version>3.8.0</assertj.core.version>
+	    <apache.commons.lang.version>3.6</apache.commons.lang.version>
+	    <commons.collections.version>3.2.2</commons.collections.version>
+        <mockito.core.version>1.9.0-rc1</mockito.core.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -39,11 +46,35 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-contract-verifier</artifactId>
-			<scope>test</scope>
-		</dependency>
+				
+		<!-- Commons -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>${commons.collections.version}</version>
+        </dependency>
+        
+        <!-- Tests -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito.core.version}</version>
+            <scope>test</scope>
+        </dependency>        
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -55,19 +86,10 @@
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
-	</dependencyManagement>
+	</dependencyManagement>	
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-contract-maven-plugin</artifactId>
-				<version>3.0.1</version>
-				<extensions>true</extensions>
-				<configuration>
-					<testFramework>JUNIT5</testFramework>
-				</configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
