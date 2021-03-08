@@ -23,7 +23,7 @@ public class TransactionRepository {
 	}
 	
 	public void addWithdrawal(int amount) {
-		throw new NotImplementedException("TODO");
+		transactions.add(new Transaction(clock.todayAsString(), - amount));
 
 	}
 	

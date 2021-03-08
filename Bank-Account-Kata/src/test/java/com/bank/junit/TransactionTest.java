@@ -45,5 +45,17 @@ public class TransactionTest {
 
 
     }
+    
+    @Test
+    public void
+    store_a_withdrawal_transaction() { 	
+    	given(clock.todayAsString()).willReturn(TODAY);	
+    	transactionRepository.addWithdrawal(100);;
+
+    	transactions =  transactionRepository.allTransactions();	
+
+    	assertThat(transactions.size(), is(1));
+    	assertThat(transactions.get(0), is(new Transaction(TODAY,-100)));    	
+    }
 
 }
