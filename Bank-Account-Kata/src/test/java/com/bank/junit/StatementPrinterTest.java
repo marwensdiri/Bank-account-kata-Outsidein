@@ -18,13 +18,11 @@ import com.bank.domain.Transaction;
 import com.bank.service.Console;
 import com.bank.service.StatementPrinter;
 
-
-
 @RunWith(MockitoJUnitRunner.class)
 public class StatementPrinterTest {
 
-
-	private static final List<Transaction> NO_Transaction = Collections.emptyList();
+	
+	private static final List<Transaction> NO_Transaction = Collections.EMPTY_LIST;
 	private static final String STATEMENT_HEADER = "DATE | AMOUNT | BALANCE";
 
 	@Mock Console console;

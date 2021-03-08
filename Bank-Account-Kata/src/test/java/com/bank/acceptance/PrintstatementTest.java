@@ -1,7 +1,8 @@
 package com.bank.acceptance;
 
-
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,6 +34,8 @@ public class PrintstatementTest {
 	@Test
 	public void printStatement_containing_all_transtactions() {
 
+		given(clock.todayAsString()).willReturn("01/04/2014","02/04/2014","10/04/2014");
+		
 		account.deposit(1000);
 		account.withdraw(100);
 		account.deposit(500);

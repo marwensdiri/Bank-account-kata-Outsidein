@@ -1,16 +1,13 @@
 package com.bank.junit;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verify;
 
 import java.util.List;
-
 import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
