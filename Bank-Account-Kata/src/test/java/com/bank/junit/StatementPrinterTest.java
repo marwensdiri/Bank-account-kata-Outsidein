@@ -24,7 +24,7 @@ import com.bank.service.StatementPrinter;
 public class StatementPrinterTest {
 
 
-	private static final List<Transaction> NO_Transaction = Collections.EMPTY_LIST;
+	private static final List<Transaction> NO_Transaction = Collections.emptyList();
 	private static final String STATEMENT_HEADER = "DATE | AMOUNT | BALANCE";
 
 	@Mock Console console;
@@ -42,5 +42,20 @@ public class StatementPrinterTest {
 		statementPrinter.print(NO_Transaction);
 
 		verify(console).printLine(STATEMENT_HEADER);
+	}
+	
+	@Test
+	public void print_all_transactions() {
+
+		transactions.add(new Transaction("01/04/2014", 1000));
+		transactions.add(new Transaction("02/04/2014", -100));
+		transactions.add(new Transaction("10/04/2014", 500));
+		statementPrinter.print(transactions);
+
+		InOrder inOrder = Mockito.inOrder(console);
+		inOrder.verify(console).printLine("DATE | AMOUNT | BALANCE");
+		inOrder.verify(console).printLine("10/04/2014 | 500.00 | 1400.00");
+		inOrder.verify(console).printLine("02/04/2014 | -100.00 | 900.00");
+		inOrder.verify(console).printLine("01/04/2014 | 1000.00 | 1000.00");
 	}
 }
