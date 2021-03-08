@@ -29,5 +29,10 @@ public class AccountTest {
 		account.deposit(100);
 		verify(transactionRepository).addDeposit(100);
 	}
+	
+	public void store_a_withdrawl_transaction() {
+		account.withdraw(100);
+		verify(transactionRepository).addWithdrawal(100);
+	}
 
 }

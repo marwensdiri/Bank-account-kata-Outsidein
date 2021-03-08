@@ -6,4 +6,9 @@ public class TransactionRepository {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public void addWithdrawal(int i) {
+		// TODO Auto-generated method stub
+
+	}
 }
