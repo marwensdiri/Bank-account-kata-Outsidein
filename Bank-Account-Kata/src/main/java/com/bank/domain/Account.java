@@ -2,13 +2,21 @@ package com.bank.domain;
 
 import org.apache.commons.lang3.NotImplementedException;
 
+import com.bank.repositories.TransactionRepository;
+
 public class Account {
 
-	public void deposit(int i) {
-		throw new NotImplementedException("TODO");
+	private TransactionRepository transactionRepository;
+
+	public Account(TransactionRepository transactionRepository) {
+		this.transactionRepository = transactionRepository;
 	}
 
-	public void withdraw(int i) {
+	public void deposit(int amount) {
+		transactionRepository.addDeposit(amount);
+	}
+
+	public void withdraw(int amount) {
 		throw new NotImplementedException("TODO");
 	}
 

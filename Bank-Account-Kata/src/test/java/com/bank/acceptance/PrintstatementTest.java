@@ -11,18 +11,21 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.bank.domain.Account;
+import com.bank.repositories.TransactionRepository;
 import com.bank.service.Console;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PrintstatementTest {
 
-	@Mock Console console;
-	private Account account;
+		@Mock Console console;
+		private Account account;
+		private TransactionRepository transactionRepository;
 
-	@Before
-	public void setUp() throws Exception {
-		account = new Account();
-	}
+		@Before
+		public void setUp() throws Exception {
+			transactionRepository = new TransactionRepository();
+			account = new Account(transactionRepository);
+		}
 
 	@Test
 	public void printStatement_containing_all_transtactions() {
