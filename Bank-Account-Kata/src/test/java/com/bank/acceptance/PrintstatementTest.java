@@ -13,6 +13,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import com.bank.domain.Account;
 import com.bank.repositories.TransactionRepository;
 import com.bank.service.Console;
+import com.bank.service.StatementPrinter;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PrintstatementTest {
@@ -20,11 +21,13 @@ public class PrintstatementTest {
 		@Mock Console console;
 		private Account account;
 		private TransactionRepository transactionRepository;
-
+		private StatementPrinter statementPrinter;
+		
 		@Before
 		public void setUp() throws Exception {
 			transactionRepository = new TransactionRepository();
-			account = new Account(transactionRepository);
+			statementPrinter = new StatementPrinter();
+			account = new Account(transactionRepository, statementPrinter);
 		}
 
 	@Test
